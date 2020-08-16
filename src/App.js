@@ -39,57 +39,23 @@ class App extends Component {
   };
 
   add = () => {
-    this.state.previousNumber = this.state.input;
-    this.setState({ input: "" });
-    this.state.operator = "plus";
+    this.setState({ input: this.state.input + "+" }); 
   };
 
   subtract = () => {
-    this.state.previousNumber = this.state.input;
-    this.setState({ input: "" });
-    this.state.operator = "subtract";
+    this.setState({ input: this.state.input + "-" });
   };
   
   multiply = () => {
-    this.state.previousNumber = this.state.input;
-    this.setState({ input: "" });
-    this.state.operator = "multiply";
+    this.setState({ input: this.state.input + "*" });
   };
 
   divide = () => {
-    this.state.previousNumber = this.state.input;
-    this.setState({ input: "" });
-    this.state.operator = "divide";
+    this.setState({ input: this.state.input + "/" });
   };
 
   evaluate = () => {
-    this.state.currentNumber = this.state.input;
-
-    if (this.state.operator == "plus") {
-      this.setState({
-        input:
-          parseInt(this.state.previousNumber) +
-          parseInt(this.state.currentNumber)
-      });
-    } else if (this.state.operator == "subtract") {
-      this.setState({
-        input:
-          parseInt(this.state.previousNumber) -
-          parseInt(this.state.currentNumber)
-      });
-    } else if (this.state.operator == "multiply") {
-      this.setState({
-        input:
-          parseInt(this.state.previousNumber) *
-          parseInt(this.state.currentNumber)
-      });
-    } else if (this.state.operator == "divide") {
-      this.setState({
-        input:
-          parseInt(this.state.previousNumber) /
-          parseInt(this.state.currentNumber)
-      });
-    }
+    this.setState({input: eval(this.state.input)});
   };
 
   render() {
